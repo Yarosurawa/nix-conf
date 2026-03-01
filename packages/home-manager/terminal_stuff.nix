@@ -19,9 +19,35 @@
     vim = { enable = true; };
     neovim = { 
       enable = true;
-      coc.enable = true;
       defaultEditor = true;
       extraConfig = builtins.readFile ./conf-files/vimrc;
+      waylandSupport = true;
+      withNodeJs = true;
+      withPython3 = true;
+
+      coc = {
+      	enable = true;
+	settings = {
+	  "suggest.noselect" = true;
+	  "suggest.enablePreview" = true;
+	  "suggest.enablePreselect" = false;
+	  "suggest.disableKind" = true;
+	  languageserver = {
+	    haskell = {
+	      command = "haskell-language-server-wrapper";
+	      args = [ "--lsp" ];
+	      rootPatterns = [
+		"*.cabal"
+		"stack.yaml"
+		"cabal.project"
+		"package.yaml"
+		"hie.yaml"
+	      ];
+	      filetypes = [ "haskell" "lhaskell" ];
+	    };
+	  };
+	};
+      };
     };
     fastfetch = { enable = true; };
     git = {

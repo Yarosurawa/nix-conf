@@ -4,7 +4,8 @@
   imports = [
     ../../packages/home-manager/terminal_stuff.nix
     ../../packages/home-manager/general.nix
-    ../../packages/home-manager/sway-conf.nix
+    ../../packages/home-manager/sway_conf.nix
+    ../../packages/home-manager/prog_langs.nix
     ../../packages/home-manager/txt.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
