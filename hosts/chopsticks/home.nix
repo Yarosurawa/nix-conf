@@ -5,6 +5,7 @@
     ../../packages/home-manager/terminal_stuff.nix
     ../../packages/home-manager/general.nix
     ../../packages/home-manager/sway-conf.nix
+    ../../packages/home-manager/txt.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -74,7 +75,9 @@
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     EDITOR = "nvim";
-    FLAKE = "~/.config/nix-conf/#chopsticks";
+    FLAKE = "$HOME/.config/nix-conf/#chopsticks";
+    NIX_TO_HOST = "$HOME/.config/nix-conf/hosts/chopsticks";
+    NIX_TO_PKG =  "$HOME/.config/nix-conf/packages";
   };
 
   # Let Home Manager install and manage itself.

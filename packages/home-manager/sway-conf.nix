@@ -3,6 +3,11 @@
 let
   mod = "Mod4";
 in {
+
+  services.swww = {
+    enable = true;
+  };
+
   programs.wofi = {
     enable = true;
     settings = {
@@ -12,9 +17,39 @@ in {
   };
   wayland.windowManager.sway = {
     enable = true;
+    systemd.enable = true;
+    wrapperFeatures = {gtk = true;};
+
     config = {
       modifier = mod;
       bars = [{ command = "swaybar_command waybar"; }];
+      defaultWorkspace = "workspace number 1";
+
+      colors = {
+	focused = {
+	  background = "#0f0f0f";
+	  border = "#eb146b";
+	  childBorder = "#eb146b";
+	  indicator = "#000000";
+	  text = "#ffffff";
+	};
+      };
+
+      floating.criteria = [ {class = "Pavucontrol";} ];
+
+      gaps = {
+        inner = 6;
+	outer = 12;
+      };
+
+      window = {
+	border = 1;
+	titlebar = false;
+      };
+
+      focus.followMouse = false;
+      workspaceAutoBackAndForth = false;
+
       keybindings = lib.attrsets.mergeAttrsList [
         (lib.attrsets.mergeAttrsList (map (num: let
           ws = toString num;
@@ -55,11 +90,7 @@ in {
           "${mod}+Ctrl+q" = "exit";
         }
       ];
-      focus.followMouse = false;
-      workspaceAutoBackAndForth = true;
     };
-    systemd.enable = true;
-    wrapperFeatures = {gtk = true;};
   };
 
   programs.waybar = {
@@ -74,6 +105,7 @@ in {
 	modules-right = [ "battery" ];
 
     }];
+    style = builtins.readFile ./waybar/style.css;
   };
 
 
