@@ -12,7 +12,7 @@
 
       settings = {
         confirm_os_window_close = 0;
-        background_opacity = "0.4";
+        background_opacity = "0.6";
         enable_audio_bell = false;
       };
     };
@@ -29,6 +29,7 @@
       enable = true;
       shellAliases = {
         nix_up = "sudo nixos-rebuild switch --flake ~/.config/nix-conf/#chopsticks";
+	ff = "fastfetch";
       };
       oh-my-zsh = {
         enable = true;

@@ -14,6 +14,7 @@ in {
     enable = true;
     config = {
       modifier = mod;
+      bars = [{ command = "swaybar_command waybar"; }];
       keybindings = lib.attrsets.mergeAttrsList [
         (lib.attrsets.mergeAttrsList (map (num: let
           ws = toString num;
@@ -35,12 +36,14 @@ in {
         {
           "${mod}+Return" = "exec --no-startup-id ${pkgs.kitty}/bin/kitty";
           "${mod}+Shift+Return" = "exec --no-startup-id wofi --show drun,run";
+          "${mod}+b" = "exec vivaldi";
 
           "${mod}+q" = "kill";
 
           "${mod}+a" = "focus parent";
           "${mod}+e" = "layout toggle split";
           "${mod}+f" = "fullscreen toggle";
+          "${mod}+t" = "floating toggle";
           "${mod}+g" = "split h";
           "${mod}+s" = "layout stacking";
           "${mod}+v" = "split v";
@@ -61,8 +64,18 @@ in {
 
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
+    settings = [{
+    	position = "left";
+	width = 12;
+	layer = "top";
+
+	modules-left = [ "sway/workspaces" "sway/mode" ];
+	modules-center = [ "clock" ];
+	modules-right = [ "battery" ];
+
+    }];
   };
+
 
   home.file.".hm-graphical-session".text = pkgs.lib.concatStringsSep "\n" [
     "export MOZ_ENABLE_WAYLAND=1"
