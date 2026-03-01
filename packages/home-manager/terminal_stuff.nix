@@ -17,7 +17,12 @@
       };
     };
     vim = { enable = true; };
-    neovim = { enable = true; };
+    neovim = { 
+      enable = true;
+      coc.enable = true;
+      defaultEditor = true;
+      extraConfig = builtins.readFile ./conf-files/vimrc;
+    };
     fastfetch = { enable = true; };
     git = {
       enable = true;
