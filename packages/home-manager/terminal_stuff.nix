@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
+  xdg.configFile."nvim".source = ./nvim;
+
   programs = {
     cava.enable = true;
     kitty = {
@@ -34,40 +36,59 @@
       withNodeJs = true;
       withPython3 = true;
 
+      extraConfig = builtins.readFile ./nvim/vimrc;
+      extraPackages = with pkgs; [
+        ripgrep fd
 
-      extraConfig = builtins.readFile ./conf-files/vimrc;
-      plugins = with pkgs.vimPlugins; [
-        LazyVim
-	vim-nix
-	nvim-treesitter
-	telescope-coc-nvim
+        lua-language-server
+        nodePackages.typescript-language-server
+        nodePackages.typescript
+        nodePackages.vscode-langservers-extracted
+        nodePackages.eslint
+        nodePackages.prettier
+        vue-language-server 
+	emmet-ls vtsls
+        clang-tools          
+
+        lldb
+        gdb
       ];
-      
-      initLua = "require('lazy').setup()";
+      plugins = with pkgs.vimPlugins; [
+	nvim-lspconfig
+	nvim-lsputils
+	nvim-vtsls
 
-      coc = {
-      	enable = true;
-	settings = {
-	  "suggest.noselect" = true;
-	  "suggest.enablePreview" = true;
-	  "suggest.enablePreselect" = false;
-	  "suggest.disableKind" = true;
-	  languageserver = {
-	    haskell = {
-	      command = "haskell-language-server-wrapper";
-	      args = [ "--lsp" ];
-	      rootPatterns = [
-		"*.cabal"
-		"stack.yaml"
-		"cabal.project"
-		"package.yaml"
-		"hie.yaml"
-	      ];
-	      filetypes = [ "haskell" "lhaskell" ];
-	    };
-	  };
-	};
-      };
+	alpha-nvim
+
+	mini-icons
+	nvim-web-devicons
+	neo-tree-nvim
+
+	nvim-cmp
+	emmet-vim
+	cmp-nvim-lsp
+	cmp-buffer
+	cmp-path
+	luasnip
+	cmp_luasnip
+
+	conform-nvim
+	nvim-lint
+	nvim-dap
+
+	telescope-nvim
+	plenary-nvim
+	gitsigns-nvim
+	which-key-nvim
+
+	nvim-treesitter
+	nvim-treesitter.withAllGrammars
+
+      	kanagawa-nvim
+	kanagawa-paper-nvim
+      ];
+
+
     };
     fastfetch = { enable = true; };
     git = {
@@ -88,5 +109,7 @@
 	theme = "robbyrussell";
       };
     }; 
+
+    btop.enable = true;
   }; 
 }
