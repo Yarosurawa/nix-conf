@@ -2,7 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    lua
+    luajit
+
     luarocks-nix
 
     nodejs

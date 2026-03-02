@@ -2,6 +2,7 @@
 
 {
   programs = {
+    cava.enable = true;
     kitty = {
       enable = true;
 
@@ -20,10 +21,20 @@
     neovim = { 
       enable = true;
       defaultEditor = true;
-      extraConfig = builtins.readFile ./conf-files/vimrc;
+
       waylandSupport = true;
       withNodeJs = true;
       withPython3 = true;
+
+      extraConfig = builtins.readFile ./conf-files/vimrc;
+      plugins = with pkgs.vimPlugins; [
+        LazyVim
+	vim-nix
+	nvim-treesitter
+	telescope-coc-nvim
+      ];
+      
+      initLua = "require('lazy').setup()";
 
       coc = {
       	enable = true;

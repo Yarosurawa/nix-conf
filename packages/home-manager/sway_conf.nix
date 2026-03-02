@@ -102,7 +102,7 @@ in {
 
 	modules-left = [ "sway/workspaces" "sway/mode" ];
 	modules-center = [ "clock" ];
-	modules-right = [ "battery" ];
+	modules-right = [ "battery" "network" "pavucontrol" ];
 
     }];
     style = builtins.readFile ./waybar/style.css;
