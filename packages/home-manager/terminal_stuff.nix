@@ -5,6 +5,7 @@
     cava.enable = true;
     kitty = {
       enable = true;
+      enableGitIntegration = true;
 
       font = {
         name = "FiraCode Nerd Font";
@@ -15,6 +16,13 @@
         confirm_os_window_close = 0;
         background_opacity = "0.6";
         enable_audio_bell = false;
+	cursor_trail = 1;
+	cursor_trail_decay = "0.1 0.4";
+	open_url_with = "vivaldi";
+	show_hyperlink_targets = true;
+	strip_trailing_spaces = "always";
+	sync_to_monitor = false;
+	window_padding_width = 6;
       };
     };
     vim = { enable = true; };
@@ -25,6 +33,7 @@
       waylandSupport = true;
       withNodeJs = true;
       withPython3 = true;
+
 
       extraConfig = builtins.readFile ./conf-files/vimrc;
       plugins = with pkgs.vimPlugins; [
