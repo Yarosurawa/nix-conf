@@ -110,6 +110,13 @@
       };
     }; 
 
+    tmux = {
+	enable = true;
+	baseIndex = 1;
+	prefix = "C-a";
+	mouse = true;
+    };
+
     btop.enable = true;
   }; 
 }
