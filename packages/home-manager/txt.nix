@@ -5,6 +5,9 @@
     carlito
     dejavu_fonts
     ipafont
+		nerd-fonts.lilex
+		nerd-fonts.hack
+		nerd-fonts.agave
     kochi-substitute
     source-code-pro
     ttf_bitstream_vera

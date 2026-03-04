@@ -26,25 +26,25 @@ in {
       defaultWorkspace = "workspace number 1";
 
       colors = {
-	focused = {
-	  background = "#0f0f0f";
-	  border = "#eb146b";
-	  childBorder = "#eb146b";
-	  indicator = "#000000";
-	  text = "#ffffff";
-	};
+				focused = {
+					background = "#0f0f0f";
+					border = "#eb146b";
+					childBorder = "#eb146b";
+					indicator = "#000000";
+					text = "#ffffff";
+				};
       };
 
       floating.criteria = [ {class = "Pavucontrol";} ];
 
       gaps = {
-        inner = 6;
-	outer = 12;
+        inner = 4;
+				outer = 8;
       };
 
       window = {
-	border = 1;
-	titlebar = false;
+				border = 1;
+				titlebar = false;
       };
 
       focus.followMouse = false;
@@ -69,19 +69,28 @@ in {
           })
 
         {
+
+					"${mod}+Shift+Left" = "resize shrink width 20px";
+					"${mod}+Shift+h" = "resize shrink width 20px";
+					"${mod}+Shift+Down" = "resize grow height 20px";
+					"${mod}+Shift+j" = "resize grow height 20px";
+					"${mod}+Shift+Up" = "resize shrink height 20px";
+					"${mod}+Shift+k" = "resize shrink height 20px";
+					"${mod}+Shift+Right" = "resize grow width 20px";
+					"${mod}+Shift+l" = "resize grow width 20px";
+
           "${mod}+Return" = "exec --no-startup-id ${pkgs.kitty}/bin/kitty";
           "${mod}+Shift+Return" = "exec --no-startup-id wofi --show drun,run";
           "${mod}+b" = "exec vivaldi";
+          "${mod}+e" = "exec thunar";
 
           "${mod}+q" = "kill";
 
           "${mod}+a" = "focus parent";
-          "${mod}+e" = "layout toggle split";
+          "${mod}+v" = "layout toggle split";
           "${mod}+f" = "fullscreen toggle";
           "${mod}+t" = "floating toggle";
-          "${mod}+g" = "split h";
           "${mod}+s" = "layout stacking";
-          "${mod}+v" = "split v";
           "${mod}+w" = "layout tabbed";
 
           "${mod}+Shift+r" = "exec swaymsg reload";
@@ -96,15 +105,39 @@ in {
   programs.waybar = {
     enable = true;
     settings = [{
-    	position = "left";
-	width = 12;
-	layer = "top";
+			position = "top";
+			layer = "top";
+			spacing = 5;
 
-	modules-left = [ "sway/workspaces" "sway/mode" ];
-	modules-center = [ "clock" ];
-	modules-right = [ "battery" "network" "pavucontrol" ];
+			modules-left = [ "sway/workspaces" "sway/mode" ];
+			modules-center = [ "clock" ];
+			modules-right = [ "battery" "pulseaudio" "network" ];
 
-    }];
+			network = {
+				format = "{ifname}";
+				format-wifi = "{essid} ({signalStrength}%) ";
+				format-ethernet = "{ifname} ";
+				format-disconnected = "";
+				tooltip-format = "{ifname}";
+				tooltip-format-wifi = "{essid} ({signalStrength}%) ";
+				tooltip-format-ethernet = "{ifname} ";
+				tooltip-format-disconnected = "Disconnected";
+				max-length= 50;
+			};
+
+			battery = {
+				interval = 20;
+				states = {
+				  warning = 20;
+				};
+				format = "{capacity}%-{icon}";
+				format-icons = ["󰁺" "󰁺" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+			};
+
+			pulseaudio = {
+			  format = "{volume}-󰕾";
+				};
+		}];
     style = builtins.readFile ./waybar/style.css;
   };
 

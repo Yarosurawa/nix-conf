@@ -101,13 +101,14 @@
       enable = true;
       shellAliases = {
         nix_up = "sudo nixos-rebuild switch --flake ~/.config/nix-conf/#chopsticks";
-	ff = "fastfetch";
+        nix_test = "sudo nixos-rebuild test --flake ~/.config/nix-conf/#chopsticks";
+				ff = "fastfetch";
       };
       oh-my-zsh = {
         enable = true;
-	plugins = [ "git" "vi-mode" ];
-	theme = "robbyrussell";
-      };
+				plugins = [ "git" "vi-mode" ];
+				theme = "darkblood";
+			};
     }; 
 
     tmux = {
