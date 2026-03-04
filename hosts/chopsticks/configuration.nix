@@ -132,7 +132,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git wget tmux kitty keyd sway i3 home-manager
+    git wget tmux kitty keyd sway i3 home-manager vim neovim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

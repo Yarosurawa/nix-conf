@@ -39,6 +39,7 @@ in {
 
       gaps = {
         inner = 4;
+				top = 2;
 				outer = 8;
       };
 
