@@ -4,7 +4,17 @@
   xdg.configFile."nvim".source = ./nvim;
 
   programs = {
-    cava.enable = true;
+    cava = {
+			enable = true;
+			settings = {
+				general.framerate = 120;
+				smoothing.noise_reduction = 88;
+				color = {
+					background = "'#000000'";
+					foreground = "'#eb146b'";
+				};
+			};
+		};
     kitty = {
       enable = true;
       enableGitIntegration = true;
@@ -58,6 +68,8 @@
 				nvim-vtsls
 
 				alpha-nvim
+
+				bufferline-nvim
 
 				mini-icons
 				nvim-web-devicons

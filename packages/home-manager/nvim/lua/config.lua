@@ -82,3 +82,16 @@ dap.configurations.cpp = {
 }
 
 dap.configurations.c = dap.configurations.cpp
+
+require("bufferline").setup({})
+
+vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>")
+
+require("neo-tree").setup({
+	source_selector = {
+		winbar = true,
+		statusline = true
+	}
+})
