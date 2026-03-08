@@ -1,26 +1,17 @@
+
 -- LSP
+
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('vtsls')
+vim.lsp.enable('emmet_ls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('html')
 vim.lsp.enable('cssls')
 vim.lsp.enable('clangd')
 
-vim.lsp.config['emmet_ls'] = {
-  filetypes = {
-    "html", "css", "scss", "vue",
-    "javascript", "javascriptreact", "typescriptreact",
-  },
-  init_options = {
-    html = {
-      options = {
-	["bem.enabled"] = true,
-      },
-    },
-  }
-}
-
-vim.lsp.enable('emmet_ls')
+vim.lsp.enable('rust_analyzer');
+vim.lsp.enable('pyright');
+vim.lsp.enable('clangd');
 
 local cmp = require("cmp")
 
@@ -95,3 +86,15 @@ require("neo-tree").setup({
 		statusline = true
 	}
 })
+
+require("notify").setup({ })
+vim.notify = require("notify")
+
+require("noice").setup({})
+
+require('lualine').setup({
+	options = {
+		theme = "gruvbox-material",
+	}
+})
+

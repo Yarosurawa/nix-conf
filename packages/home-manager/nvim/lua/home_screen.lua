@@ -37,29 +37,14 @@ dashboard.section.header.val = {
 "                                                       ,;;;;'",
 }
 
-local bottom_section = {
-  type = "text",
-  val = "It's"
-    .. datetime
-    .. "Why did you come here.",
-  opts = {
-    position = "center",
-  },
+dashboard.section.footer.val = { "It's" .. datetime .. "Why did you come here.", }
+
+dashboard.section.buttons.val = {
+    dashboard.button( "e", "  > New file" , ":ene <BAR> startinsert <CR>"),
+    dashboard.button( "f", "󰱼  > Find file", ":cd $HOME/Workspace | Telescope find_files<CR>"),
+    dashboard.button( "r", "  > Recent"   , ":Telescope oldfiles<CR>"),
+    dashboard.button( "s", "  > Settings" , ":e ~/.config/nix-conf/packages/home-manager/nvim/init.lua | split . | wincmd k | pwd<CR>"),
+    dashboard.button( "q", "󰈆  > Quit NVIM", ":qa<CR>"),
 }
 
-local section = {
-  header = dashboard.section.header,
-  bottom_section = bottom_section,
-  buttons = dashboard.section.buttons,
-}
-
-local opts = {
-  layout = {
-    { type = "padding", val = 8 },
-    section.header,
-    { type = "padding", val = 1 },
-    section.bottom_section,
-  },
-}
-
-alpha.setup(opts)
+alpha.setup(dashboard.opts)

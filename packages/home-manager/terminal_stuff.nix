@@ -56,13 +56,24 @@
         nodePackages.eslint
         nodePackages.prettier
         vue-language-server 
+				vue
 				emmet-ls vtsls
         clang-tools          
+				rust-analyzer
+				pyright
+
+				rustfmt
+				black
+				isort
 
         lldb
         gdb
       ];
       plugins = with pkgs.vimPlugins; [
+				nvim-treesitter
+				nvim-treesitter.withAllGrammars
+				nerdcommenter
+
 				nvim-lspconfig
 				nvim-lsputils
 				nvim-vtsls
@@ -76,85 +87,35 @@
 				neo-tree-nvim
 
 				nvim-cmp
-				emmet-vim
 				cmp-nvim-lsp
 				cmp-buffer
 				cmp-path
 				luasnip
 				cmp_luasnip
 
+				vim-vue-plugin
+				vim-vue
+
 				conform-nvim
 				nvim-lint
 				nvim-dap
+				nvim-notify
+				noice-nvim
+
+				lualine-nvim
 
 				telescope-nvim
 				plenary-nvim
 				gitsigns-nvim
 				which-key-nvim
 
-				nvim-treesitter
-				nvim-treesitter.withAllGrammars
 
 				kanagawa-nvim
 				kanagawa-paper-nvim
       ];
     };
 
-    fastfetch = {
-			enable = true;
-			settings = {
-				logo =  {
-				  type = "file";
-					source = "${
-						pkgs.writeText "myascii.txt" ''
-[38;2;82;119;195m       ◢██◣[38;2;127;183;255m   ◥███◣  ◢██◣
-[38;2;82;119;195m       ◥███◣[38;2;127;183;255m   ◥███◣◢███◤
-[38;2;82;119;195m        ◥███◣[38;2;127;183;255m   ◥██████◤
-[38;2;82;119;195m    ◢████████████[48;2;127;183;255m◣[0m[38;2;127;183;255m████◤[38;2;82;119;195m   ◢◣
-[38;2;82;119;195m   ◢██████████████[48;2;127;183;255m◣[0m[38;2;127;183;255m███◣[38;2;82;119;195m  ◢██◣
-[38;2;127;183;255m        ◢███◤      ◥███◣[38;2;82;119;195m◢███◤
-[38;2;127;183;255m       ◢███◤        ◥██[48;2;82;119;195m◤[0m[38;2;82;119;195m███◤
-[38;2;127;183;255m◢█████████◤          ◥[48;2;82;119;195m◤[0m[38;2;82;119;195m████████◣
-[38;2;127;183;255m◥████████[48;2;82;119;195m◤[0m[38;2;82;119;195m◣          ◢█████████◤
-[38;2;127;183;255m    ◢███[48;2;82;119;195m◤[0m[38;2;82;119;195m██◣        ◢███◤
-[38;2;127;183;255m   ◢███◤[38;2;82;119;195m◥███◣      ◢███◤
-[38;2;127;183;255m   ◥██◤  [38;2;82;119;195m◥███[48;2;127;183;255m◣[0m[38;2;127;183;255m██████████████◤
-[38;2;127;183;255m    ◥◤   [38;2;82;119;195m◢████[48;2;127;183;255m◣[0m[38;2;127;183;255m████████████◤
-[38;2;82;119;195m        ◢██████◣[38;2;127;183;255m   ◥███◣
-[38;2;82;119;195m       ◢███◤◥███◣[38;2;127;183;255m   ◥███◣
-[38;2;82;119;195m       ◥██◤  ◥███◣[38;2;127;183;255m   ◥██◤
-						''
-					}";
-					padding = {
-						right = 2;
-						top = 2;
-					};
-				};	
-				display = {
-					size = {
-						binaryPrefix = "si";
-					};
-					color = "blue";
-					separator = "  ";
-				};
-				modules = [
-					{
-						type = "datetime";
-						key = "Date";
-						format = "{1}-{3}-{11}";
-					}
-					{
-						type = "datetime";
-						key = "Time";
-						format = "{14}:{17}:{20}";
-					}
-					"break"
-					"player"
-					"media"
-				];
-			};
-		};
-
+    fastfetch = { enable = true; };
     git = {
       enable = true;
       settings.user.name = "Yarosurawa";

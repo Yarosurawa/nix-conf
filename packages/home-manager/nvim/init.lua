@@ -2,6 +2,6 @@
 vim.cmd.colorscheme("kanagawa-dragon")
 
 require("home_screen")
-require("config")
+require("plugins")
 require("vim")
 require("keybinds")

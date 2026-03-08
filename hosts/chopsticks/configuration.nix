@@ -9,6 +9,7 @@
       ./hardware-configuration.nix
       ../../packages/nixos/keyd.nix
       ../../packages/nixos/virtualbox.nix
+      ../../packages/nixos/usb.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -60,6 +61,8 @@
 
   # Enable the XFCE Desktop Environment.
   services.xserver.desktopManager.xfce.enable = true;
+
+	hardware.graphics.enable32Bit = true;
 
   #for sway
   programs.sway.enable = true;
