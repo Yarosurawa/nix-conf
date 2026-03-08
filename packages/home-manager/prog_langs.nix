@@ -9,9 +9,11 @@
 		rustc
 		cargo
     pipx
-    clang
-    libgcc
+		gcc
     ripgrep
     typescript
+
+		cowsay
+		fortune
   ];
 }
