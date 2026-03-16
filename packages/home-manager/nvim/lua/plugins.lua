@@ -98,3 +98,6 @@ require('lualine').setup({
 	}
 })
 
+require("autoclose").setup({})
+
+

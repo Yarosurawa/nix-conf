@@ -1,14 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.steam
-    pkgs.steamcmd
-    pkgs.steam-tui
-    pkgs.cool-retro-term
-    pkgs.spotify
-    pkgs.vivaldi
-    pkgs.discord
-    pkgs.waytrogen
+  home.packages = with pkgs; [
+    steam
+    steamcmd
+    steam-tui
+    cool-retro-term
+    spotify
+    vivaldi
+    discord
+    waytrogen
+		telegram-desktop
+		whatsapp-electron
+		jetbrains.rider
   ];
 }

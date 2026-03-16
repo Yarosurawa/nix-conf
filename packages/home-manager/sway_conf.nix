@@ -8,13 +8,13 @@ in {
     enable = true;
   };
 
-  programs.wofi = {
-    enable = true;
-    settings = {
-      allow_markup = true;
-      width = 250;
-    };
-  };
+	programs.rofi = {
+		enable = true;
+		location = "top-left";
+		theme = "DarkBlue";
+		plugins = with pkgs; [rofi-calc rofi-vpn];
+	};
+
   wayland.windowManager.sway = {
     enable = true;
     systemd.enable = true;
@@ -81,7 +81,7 @@ in {
 					"${mod}+Shift+l" = "resize grow width 20px";
 
           "${mod}+Return" = "exec --no-startup-id ${pkgs.kitty}/bin/kitty";
-          "${mod}+Shift+Return" = "exec --no-startup-id wofi --show drun,run";
+          "${mod}+Shift+Return" = "exec rofi -show drun";
           "${mod}+b" = "exec vivaldi";
           "${mod}+e" = "exec thunar";
 

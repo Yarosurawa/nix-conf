@@ -77,6 +77,7 @@
 				nvim-lspconfig
 				nvim-lsputils
 				nvim-vtsls
+				autoclose-nvim
 
 				alpha-nvim
 
