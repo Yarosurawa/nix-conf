@@ -12,6 +12,7 @@ in {
 		enable = true;
 		location = "top-left";
 		theme = "DarkBlue";
+		terminal = "kitty";
 		plugins = with pkgs; [rofi-calc rofi-vpn];
 	};
 
@@ -114,11 +115,28 @@ in {
 			modules-center = [ "clock" ];
 			modules-right = [ "battery" "pulseaudio" "network" ];
 
+			"sway/workspaces" = {
+				format = "{icon}";
+				persistent-workspaces = {
+					"1" = [];
+					"2" = [];
+					"3" = [];
+					"4" = [];
+					"5" = [];
+				};
+				format-icons = {
+					"1" = "";
+					"2" = "";
+					"3" = "3";
+					"4" = "4";
+					"5" = "";
+				};
+			};
+
 			network = {
 				format = "{ifname}";
-				format-wifi = "{essid} ({signalStrength}%) ";
-				format-ethernet = "{ifname} ";
-				format-disconnected = "";
+				format-wifi = "{ipaddr} ";
+				format-disconnected = "nu uh";
 				tooltip-format = "{ifname}";
 				tooltip-format-wifi = "{essid} ({signalStrength}%) ";
 				tooltip-format-ethernet = "{ifname} ";
@@ -133,6 +151,8 @@ in {
 				};
 				format = "{capacity}%-{icon}";
 				format-icons = ["󰁺" "󰁺" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+				format-charging = "{capacity}%-󱎗";
+				format-plugged = "{capacity}%-󱎗";
 			};
 
 			pulseaudio = {

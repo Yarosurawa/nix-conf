@@ -8,6 +8,7 @@
 		nerd-fonts.lilex
 		nerd-fonts.hack
 		nerd-fonts.agave
+		nerd-fonts.arimo
     kochi-substitute
     source-code-pro
     ttf_bitstream_vera
