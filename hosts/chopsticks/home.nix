@@ -4,7 +4,7 @@
   imports = [
     ../../packages/home-manager/terminal_stuff.nix
     ../../packages/home-manager/general.nix
-    ../../packages/home-manager/sway_conf.nix
+    ../../packages/home-manager/home_managers.nix
     ../../packages/home-manager/prog_langs.nix
     ../../packages/home-manager/txt.nix
   ];

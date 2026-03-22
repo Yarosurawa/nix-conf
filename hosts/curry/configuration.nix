@@ -59,14 +59,18 @@
   services.xserver.enable = true;
   programs.xwayland.enable = true;
 
-  # Enable the XFCE Desktop Environment.
+  # XFCE Desktop Environment.
   services.xserver.desktopManager.xfce.enable = true;
 	hardware.graphics.enable32Bit = true;
 
-  #for sway
+	# Sway
   programs.sway.enable = true;
   programs.sway.wrapperFeatures.gtk = true;
 	
+	#Hyprland
+	programs.hyprland.enable = true;
+
+	#touchpad
 	services.libinput = {
 		enable = true;
 		touchpad.tapping = true;
@@ -135,9 +139,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    git wget tmux kitty keyd sway i3 home-manager vim neovim
-  ];
+  environment.systemPackages = with pkgs; [ git wget tmux kitty keyd sway i3 home-manager vim neovim killall ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

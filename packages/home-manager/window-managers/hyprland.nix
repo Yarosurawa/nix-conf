@@ -33,7 +33,7 @@
 				"$mod, RETURN, exec, $term"
 				"$mod, E, exec, $explorer"
 				"$mod, B, exec, vivaldi"
-				"SUPER SHIFT, code:201, exec, btop++"
+				"SUPER SHIFT, code:201, exec, $term btop"
 				"$mod, menu, exec, discord"
 
 				", Print, exec, grim"
@@ -41,6 +41,7 @@
 				# Window Operatins
 				"$mod, Q, killactive,"
 				"$mod, T, togglefloating,"
+				"$mod, F, fullscreen,"
 				"$mod SHIFT, RETURN, exec, $menu"
 				"$mod, P, pseudo,"
 				"$mod, J, layoutmsg, togglesplit"
@@ -84,6 +85,11 @@
 
 			decoration = {
 				rounding = "10";
+
+				blur = {
+					enabled = true;
+					size = "5";
+				};
 			};
 
 			animations = {
@@ -100,7 +106,6 @@
 
 			animation = [
 				# Default animations, see https://wiki.hypr.land/Configuring/Animations/
-				#           NAME,          ONOFF, SPEED, CURVE,        [STYLE]
 				"global,        1,     10,    default"
 				"border,        1,     5.39,  easeOutQuint"
 				"windows,       1,     4.79,  easeOutQuint"
@@ -114,10 +119,10 @@
 				"layersOut,     1,     1.5,   linear,       fade"
 				"fadeLayersIn,  1,     1.79,  almostLinear"
 				"fadeLayersOut, 1,     1.39,  almostLinear"
-				"workspaces,    1,     1.94,  almostLinear, fade"
-				"workspacesIn,  1,     1.21,  almostLinear, fade"
-				"workspacesOut, 1,     1.94,  almostLinear, fade"
-				"zoomFactor,    1,     7,     quick"
+				"workspaces,    1,     3,  easeInOutCubic, slide"
+				"workspacesIn,  1,     3,  easeInOutCubic, slide"
+				"workspacesOut, 1,     3,  easeInOutCubic, slide"
+				"zoomFactor,    1,     4,     quick"
 			];
 		};
 

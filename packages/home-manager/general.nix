@@ -6,6 +6,7 @@
     steamcmd
     steam-tui
     cool-retro-term
+		wev
     spotify
     vivaldi
     discord
@@ -13,5 +14,7 @@
 		telegram-desktop
 		whatsapp-electron
 		jetbrains.rider
+
+		playerctl
   ];
 }

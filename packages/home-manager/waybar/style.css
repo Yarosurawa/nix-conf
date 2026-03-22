@@ -26,13 +26,16 @@ window#waybar {
 	font-size: 1.2rem;
 }
 
-#workspaces button.persistent {
-	transition: 200ms ease all;
-}
-
+#workspaces button.active,
 #workspaces button.focused {
 	padding: 0 4rem;
 	border-color: #eb146b;
+}
+
+
+#workspaces button.empty {
+	background: #111;
+	opacity: 0.8;
 }
 
 #network {

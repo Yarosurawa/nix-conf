@@ -1,0 +1,39 @@
+{config, pkgs, ...}:
+
+{
+	wayland.windowManager.hyprland = {
+		enable = true;
+		systemd.enable = true;
+
+		settings = {
+			xwayland.enable = true;
+			decoration = {
+				shadow_offset = "0 5";
+				"col.shadow" = "rgba(00000099)";
+			};
+
+			"$mod" = "SUPER";
+
+			bindm = [
+				# mouse movements
+				"$mod, mouse:272, movewindow"
+				"$mod, mouse:273, resizewindow"
+				"$mod ALT, mouse:272, resizewindow"
+			];
+		};
+
+		submaps = {
+		 move_focus.settings = {
+				bind = [
+					", h, movefocus, l"
+					", j, movefocus, d"
+					", k, movefocus, u"
+					", l, movefocus, r"
+
+					", escape, submap, reset"
+				];
+			};
+		};
+
+	};
+}

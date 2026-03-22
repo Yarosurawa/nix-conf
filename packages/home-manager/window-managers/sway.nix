@@ -3,19 +3,6 @@
 let
   mod = "Mod4";
 in {
-
-  services.swww = {
-    enable = true;
-  };
-
-	programs.rofi = {
-		enable = true;
-		location = "top-left";
-		theme = "DarkBlue";
-		terminal = "kitty";
-		plugins = with pkgs; [rofi-calc rofi-vpn];
-	};
-
   wayland.windowManager.sway = {
     enable = true;
     systemd.enable = true;
@@ -109,78 +96,5 @@ in {
       ];
     };
   };
-
-  programs.waybar = {
-    enable = true;
-    settings = [{
-			position = "top";
-			layer = "top";
-			spacing = 5;
-
-			modules-left = [ "sway/workspaces" "sway/mode" ];
-			modules-center = [ "clock" ];
-			modules-right = [ "battery" "pulseaudio" "network" ];
-
-			"sway/workspaces" = {
-				format = "{icon}";
-				persistent-workspaces = {
-					"1" = [];
-					"2" = [];
-					"3" = [];
-					"4" = [];
-					"5" = [];
-				};
-				format-icons = {
-					"1" = "";
-					"2" = "";
-					"3" = "3";
-					"4" = "4";
-					"5" = "";
-				};
-			};
-
-			network = {
-				format = "{ifname}";
-				format-wifi = "{ipaddr} ";
-				format-disconnected = "nu uh";
-				tooltip-format = "{ifname}";
-				tooltip-format-wifi = "{essid} ({signalStrength}%) ";
-				tooltip-format-ethernet = "{ifname} ";
-				tooltip-format-disconnected = "Disconnected";
-				max-length= 50;
-			};
-
-			battery = {
-				interval = 20;
-				states = {
-				  warning = 20;
-				};
-				format = "{capacity}%-{icon}";
-				format-icons = ["󰁺" "󰁺" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
-				format-charging = "{capacity}%-󱎗";
-				format-plugged = "{capacity}%-󱎗";
-			};
-
-			pulseaudio = {
-			  format = "{volume}-󰕾";
-				};
-		}];
-    style = builtins.readFile ./waybar/style.css;
-  };
-
-
-  home.file.".hm-graphical-session".text = pkgs.lib.concatStringsSep "\n" [
-    "export MOZ_ENABLE_WAYLAND=1"
-    "export NIXOS_OZONE_WL=1" # Electron
-  ];
-
-  services.cliphist.enable = true;
-
-  home.packages = with pkgs; [
-    grim
-    slurp
-    wl-clipboard
-    mako # notifications
-  ];
 }
 
