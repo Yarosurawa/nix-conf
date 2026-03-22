@@ -38,6 +38,12 @@ in {
 
       floating.criteria = [ {class = "Pavucontrol";} ];
 
+			input = {
+				"type:touchpad" = {
+					tap = "enabled";
+				};
+			};
+
       gaps = {
         inner = 4;
 				top = 2;

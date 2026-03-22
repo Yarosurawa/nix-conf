@@ -24,5 +24,18 @@
         }
       ];
     };
+    nixosConfigurations.curry = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+
+      specialArgs = { inherit inputs; };
+
+      modules = [
+        ./hosts/curry/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          nixpkgs.config.allowUnfree = true;
+        }
+      ];
+    };
   };
 }

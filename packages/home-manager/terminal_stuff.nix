@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, osConfig, pkgs, ... }:
 
 {
   xdg.configFile."nvim".source = ./nvim;
@@ -126,8 +126,8 @@
     zsh = {
       enable = true;
       shellAliases = {
-        nix_up = "sudo nixos-rebuild switch --flake ~/.config/nix-conf/#chopsticks";
-        nix_test = "sudo nixos-rebuild test --flake ~/.config/nix-conf/#chopsticks";
+        nix_up = "sudo nixos-rebuild switch --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
+        nix_test = "sudo nixos-rebuild test --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
 				ff = "fastfetch";
       };
       oh-my-zsh = {
