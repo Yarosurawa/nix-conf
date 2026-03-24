@@ -39,6 +39,16 @@
 				", Print, exec, grim"
 
 				# Window Operatins
+				"bind = $mod, left, movefocus, l"
+				"bind = $mod, right, movefocus, r"
+				"bind = $mod, up, movefocus, u"
+				"bind = $mod, down, movefocus, d"
+
+				"bind = $mod SHIFT, left, swapwindow, l"
+				"bind = $mod SHIFT, right, swapwindow, r"
+				"bind = $mod SHIFT, up, swapwindow, u"
+				"bind = $mod SHIFT, down, swapwindow, d"
+
 				"$mod, Q, killactive,"
 				"$mod, T, togglefloating,"
 				"$mod, F, fullscreen,"
@@ -111,6 +121,7 @@
 				"windows,       1,     4.79,  easeOutQuint"
 				"windowsIn,     1,     4.1,   easeOutQuint, popin 87%"
 				"windowsOut,    1,     1.49,  linear,       popin 87%"
+				"windowsMove,   1,     3.5,   easeOutQuint"
 				"fadeIn,        1,     1.73,  almostLinear"
 				"fadeOut,       1,     1.46,  almostLinear"
 				"fade,          1,     3.03,  quick"
@@ -125,19 +136,5 @@
 				"zoomFactor,    1,     4,     quick"
 			];
 		};
-
-		submaps = {
-		 move_focus.settings = {
-				bind = [
-					", h, movefocus, l"
-					", j, movefocus, d"
-					", k, movefocus, u"
-					", l, movefocus, r"
-
-					", escape, submap, reset"
-				];
-			};
-		};
-
 	};
 }

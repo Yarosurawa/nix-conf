@@ -14,7 +14,9 @@
 		telegram-desktop
 		whatsapp-electron
 		jetbrains.rider
-
+		protonvpn-gui
+		protonmail-bridge-gui
+		bitwarden-desktop
 		playerctl
   ];
 }

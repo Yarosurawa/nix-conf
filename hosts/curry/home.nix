@@ -22,6 +22,14 @@
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
+	home.pointerCursor = {
+		gtk.enable = true;
+		x11.enable = true;
+		name = "Bibata-Modern-Classic";
+		size = 18;
+		package = pkgs.bibata-cursors;
+	};
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -78,7 +86,8 @@
     EDITOR = "nvim";
     FLAKE = "$HOME/.config/nix-conf/#chopsticks";
     NIX_TO_HOST = "$HOME/.config/nix-conf/hosts/chopsticks";
-    NIX_TO_PKG =  "$HOME/.config/nix-conf/packages";
+		XCURSOR_THEME = "Bibata-Modern-Classic";
+		XCURSOR_SIZE = "24";   NIX_TO_PKG =  "$HOME/.config/nix-conf/packages";
   };
 
   # Let Home Manager install and manage itself.
