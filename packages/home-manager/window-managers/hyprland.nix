@@ -7,16 +7,10 @@
 		xwayland.enable = true;
 
 		settings = {
-			
-			"monitor" = "eDP-1, 1920x1200@144, 0x0, 1";
-
-			# Consts
 			"$mod" = "SUPER";
 			"$term" = "kitty";
 			"$explorer" = "thunar";
 			"$menu" = "rofi -show drun";
-
-			# Autostart
 			"exec-once" = "waybar";
 			
 			general = {
@@ -95,6 +89,7 @@
 
 			decoration = {
 				rounding = "10";
+				inactive_opacity = "0.8";
 
 				blur = {
 					enabled = true;

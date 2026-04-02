@@ -2,12 +2,18 @@
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	nix.settings.substituters = [
+		"https://cache.nixos.org/"
+	];
+	nix.settings.max-jobs = "auto";
+	nix.settings.cores = 0; # use all cores per job
+	services.power-profiles-daemon.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # netwking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

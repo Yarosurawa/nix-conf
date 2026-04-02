@@ -12,7 +12,10 @@
     kochi-substitute
     source-code-pro
     ttf_bitstream_vera
-    ];
+    iosevka
+		nerd-fonts.iosevka-term
+		zpix-pixel-font
+	];
 
   home.sessionVariables = {
     GTK_IM_MODULE = "fcitx";

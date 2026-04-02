@@ -8,11 +8,10 @@
     ../../packages/home-manager/prog_langs.nix
     ../../packages/home-manager/txt.nix
   ];
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "yaro";
   home.homeDirectory = "/home/yaro";
 
+	wayland.windowManager.hyprland.settings.monitor = "eDP-1, 1920x1200@60, 0x0, 1";
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -84,8 +83,6 @@
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     EDITOR = "nvim";
-    FLAKE = "$HOME/.config/nix-conf/#chopsticks";
-    NIX_TO_HOST = "$HOME/.config/nix-conf/hosts/chopsticks";
 		XCURSOR_THEME = "Bibata-Modern-Classic";
 		XCURSOR_SIZE = "24";   NIX_TO_PKG =  "$HOME/.config/nix-conf/packages";
   };

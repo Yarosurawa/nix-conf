@@ -24,6 +24,8 @@
     shell = pkgs.zsh;
   };
 
+	services.xserver.videoDrivers = ["amdgpu"];
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;

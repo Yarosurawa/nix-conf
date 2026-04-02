@@ -1,5 +1,5 @@
 
-vim.cmd.colorscheme("kanagawa-dragon")
+vim.cmd.colorscheme("moonfly")
 
 require("home_screen")
 require("plugins")

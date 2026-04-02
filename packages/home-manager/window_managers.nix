@@ -10,18 +10,45 @@
     grim
     slurp
     wl-clipboard
+		waypaper
   ];
 
-  services.swww = {
-    enable = true;
-  };
+	programs.mpvpaper.enable = true;
+	services.swww.enable = true;
 
 	programs.rofi = {
 		enable = true;
 		location = "top-left";
-		theme = "DarkBlue";
 		terminal = "kitty";
-		plugins = with pkgs; [rofi-calc rofi-vpn];
+
+		theme = let inherit (config.lib.formats.rasi) mkLiteral; in {
+			"*" = {
+				background-color = mkLiteral "#000000";
+				foreground-color = mkLiteral "#ffffff";
+			};
+
+			"window" = {
+				background-color = mkLiteral "#000000";
+			};
+
+			"entry" = {
+				text-color = mkLiteral "#ffffff";
+			};
+
+			"listview" = {
+				lines = 10;
+				text-color = mkLiteral "#ffffff";
+			};
+
+			"element" = {
+				text-color = mkLiteral "#ffffff";
+			};
+
+			"element selected" = {
+				background-color = mkLiteral "#ffffff";
+				text-color = mkLiteral "#000000";
+			};
+		};
 	};
 
   home.file.".hm-graphical-session".text = pkgs.lib.concatStringsSep "\n" [

@@ -20,13 +20,13 @@
       enableGitIntegration = true;
 
       font = {
-        name = "FiraCode Nerd Font";
-        size = 12;
+        name = "IosevkaTerm Nerd Font";
+        size = 14;
       };
 
       settings = {
         confirm_os_window_close = 0;
-        background_opacity = "0.6";
+        background_opacity = "0.8";
         enable_audio_bell = false;
 				cursor_trail = 1;
 				cursor_trail_decay = "0.1 0.4";
@@ -109,10 +109,9 @@
 				plenary-nvim
 				gitsigns-nvim
 				which-key-nvim
+				indent-blankline-nvim
 
-
-				kanagawa-nvim
-				kanagawa-paper-nvim
+				vim-moonfly-colors
       ];
     };
 
@@ -120,7 +119,7 @@
     git = {
       enable = true;
       settings.user.name = "Yarosurawa";
-      settings.user.email = "yarosurawa@gmail.com";
+      settings.user.email = "yarosurawa@proton.me";
     };
 
     zsh = {
@@ -129,6 +128,7 @@
         nix_up = "sudo nixos-rebuild switch --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
         nix_test = "sudo nixos-rebuild test --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
 				ff = "fastfetch";
+				v = "nvim";
       };
       oh-my-zsh = {
         enable = true;

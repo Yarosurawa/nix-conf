@@ -4,15 +4,14 @@
   imports = [
     ../../packages/home-manager/terminal_stuff.nix
     ../../packages/home-manager/general.nix
-    ../../packages/home-manager/home_managers.nix
+    ../../packages/home-manager/window_managers.nix
     ../../packages/home-manager/prog_langs.nix
     ../../packages/home-manager/txt.nix
   ];
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "yaro";
   home.homeDirectory = "/home/yaro";
 
+	wayland.windowManager.hyprland.settings.monitor = "eDP-1, 1920x1200@60, 0x0, 1";
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.

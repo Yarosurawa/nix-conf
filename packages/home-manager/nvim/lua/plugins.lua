@@ -100,4 +100,11 @@ require('lualine').setup({
 
 require("autoclose").setup({})
 
-
+require("ibl").setup({
+  indent = {
+    char = "│",
+  },
+  scope = {
+    enabled = true,
+  },
+})
