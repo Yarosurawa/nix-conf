@@ -84,7 +84,7 @@
     NIXOS_OZONE_WL = "1";
     EDITOR = "nvim";
 		XCURSOR_THEME = "Bibata-Modern-Classic";
-		XCURSOR_SIZE = "24";   NIX_TO_PKG =  "$HOME/.config/nix-conf/packages";
+		XCURSOR_SIZE = "18";  
   };
 
   # Let Home Manager install and manage itself.

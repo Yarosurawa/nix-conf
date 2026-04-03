@@ -20,13 +20,13 @@
       enableGitIntegration = true;
 
       font = {
-        name = "IosevkaTerm Nerd Font";
+        name = "Terminus (TTF)";
         size = 14;
       };
 
       settings = {
         confirm_os_window_close = 0;
-        background_opacity = "0.8";
+        background_opacity = "0.7";
         enable_audio_bell = false;
 				cursor_trail = 1;
 				cursor_trail_decay = "0.1 0.4";
@@ -61,6 +61,7 @@
         clang-tools          
 				rust-analyzer
 				pyright
+				asm-lsp
 
 				rustfmt
 				black
@@ -115,7 +116,78 @@
       ];
     };
 
-    fastfetch = { enable = true; };
+    fastfetch = { 
+			enable = true;
+			settings = {
+				logo = {
+					type = "auto";
+					source = "NixOs_old";
+					padding.right = 2;
+					color = {
+						"1" = "#f41244";
+						"2" = "white";
+					};
+				};
+				display =  {
+					separator =  ": ";
+					color =  {
+						keys =  "#f41244";
+						title =  "#f41244";
+					};
+					key =  {
+						width =  12;
+						type =  "string";
+					};
+					bar =  {
+						width =  10;
+						char =  {
+								"elapsed" =  "■";
+								"total" =  "-";
+						};
+					};
+					percent =  {
+						type =  3;
+						color =  {
+								green =  "green";
+								yellow =  "light_yellow";
+								red =  "light_red";
+						};
+					};
+				};
+				modules = [
+					"title"
+					"separator"
+					"bios"
+					"wm"
+					"Kernel"
+					"separator"
+					"os"
+					"packages"
+					"bluetooth"
+					"separator"
+					"battery"
+					"CPUUsage"
+					"board"
+					"CPU"
+					"GPU"
+					"Memory"
+					"Disk"
+					"separator"
+					"font"
+					"swap"
+					"weather"
+					"wifi"
+					"Wallpaper"
+					"uptime"
+					"terminal"
+					"shell"
+					"processes"
+					"Locale"
+					"separator"
+					"media"
+				];
+			};
+		};
     git = {
       enable = true;
       settings.user.name = "Yarosurawa";

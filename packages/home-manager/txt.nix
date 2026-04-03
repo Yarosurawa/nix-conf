@@ -13,6 +13,8 @@
     source-code-pro
     ttf_bitstream_vera
     iosevka
+		terminus_font
+		terminus_font_ttf
 		nerd-fonts.iosevka-term
 		zpix-pixel-font
 	];

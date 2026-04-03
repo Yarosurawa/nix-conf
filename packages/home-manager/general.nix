@@ -10,7 +10,6 @@
     spotify
     vivaldi
     discord
-    waytrogen
 		telegram-desktop
 		whatsapp-electron
 		jetbrains.rider
@@ -18,5 +17,8 @@
 		protonmail-bridge-gui
 		bitwarden-desktop
 		playerctl
+		lxappearance # gtk theme
+
+		minefair
   ];
 }

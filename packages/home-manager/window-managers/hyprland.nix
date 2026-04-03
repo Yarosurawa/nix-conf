@@ -1,6 +1,10 @@
 {config, pkgs, ...}:
 
 {
+	home.packages = with pkgs; [
+		hyprshot
+	];
+
 	wayland.windowManager.hyprland = {
 		enable = true;
 		systemd.enable = true;
@@ -30,9 +34,11 @@
 				"SUPER SHIFT, code:201, exec, $term btop"
 				"$mod, menu, exec, discord"
 
-				", Print, exec, grim"
+				", XF86Launch7, exec, hyprshot -m region --clipboard-only"
+				"SHIFT, XF86Launch7, exec, hyprshot -m window -m active --clipboard-only"
+				"CONTROL, XF86Launch7, exec, hyprshot -m output -m active --clipboard-only"
 
-				# Window Operatins
+				# Window Operatin
 				"bind = $mod, left, movefocus, l"
 				"bind = $mod, right, movefocus, r"
 				"bind = $mod, up, movefocus, u"
@@ -89,11 +95,10 @@
 
 			decoration = {
 				rounding = "10";
-				inactive_opacity = "0.8";
+				inactive_opacity = "0.7";
 
 				blur = {
-					enabled = true;
-					size = "5";
+					enabled = false;
 				};
 			};
 

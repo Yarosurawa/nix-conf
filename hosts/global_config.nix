@@ -9,6 +9,8 @@
 	nix.settings.cores = 0; # use all cores per job
 	services.power-profiles-daemon.enable = true;
 
+	programs.nix-ld.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -142,6 +144,7 @@
 
 	environment.sessionVariables = {
 		GTK_THEME = "Adwaita:dark";
+		GTK_FONT_NAME = "Terminus 12";
 	};
 
   # List services that you want to enable:

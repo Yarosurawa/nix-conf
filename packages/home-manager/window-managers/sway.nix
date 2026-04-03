@@ -3,6 +3,10 @@
 let
   mod = "Mod4";
 in {
+	home.packages = with pkgs; [
+		grim
+	];
+
   wayland.windowManager.sway = {
     enable = true;
     systemd.enable = true;

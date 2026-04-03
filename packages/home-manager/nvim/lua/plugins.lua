@@ -8,6 +8,7 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('html')
 vim.lsp.enable('cssls')
 vim.lsp.enable('clangd')
+vim.lsp.enable('asm_lsp')
 
 vim.lsp.enable('rust_analyzer');
 vim.lsp.enable('pyright');
