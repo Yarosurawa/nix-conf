@@ -7,7 +7,7 @@
     spotify
 		spotify-player
     vivaldi
-		qutebrowser
+		ungoogled-chromium
     discord
 		telegram-desktop
 		whatsapp-electron
