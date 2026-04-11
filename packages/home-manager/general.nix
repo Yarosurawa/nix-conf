@@ -3,22 +3,23 @@
 {
   home.packages = with pkgs; [
     steam
-    steamcmd
-    steam-tui
-    cool-retro-term
 		wev
     spotify
+		spotify-player
     vivaldi
+		qutebrowser
     discord
 		telegram-desktop
 		whatsapp-electron
 		jetbrains.rider
 		protonvpn-gui
-		protonmail-bridge-gui
 		bitwarden-desktop
 		playerctl
-		lxappearance # gtk theme
-
+		libreoffice-qt-fresh
 		minefair
+		unzip
+		qimgv
+		easyeffects
+		colo
   ];
 }

@@ -18,6 +18,8 @@
 		cowsay
 		fortune
 		fd
-		bc
+		bc	
+		gdb
+		nasm
   ];
 }

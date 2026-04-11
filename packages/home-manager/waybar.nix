@@ -1,8 +1,11 @@
 {config, pkgs, libs, ...}:
-{
 
-	home.packages = with pkgs;[
-			waybar-mpris
+let
+	colors = import ../colors/main.nix;
+in
+{
+	home.packages = [
+			pkgs.waybar-mpris
 	];
 
   programs.waybar = {
@@ -87,6 +90,13 @@
 			  format = "{volume}-󰕾";
 				};
 		}];
-    style = builtins.readFile ./waybar/style.css;
+    style = ''
+@define-color clr1-prim ${colors.clr1.primary};
+@define-color clr2-prim ${colors.clr2.primary};
+
+@define-color bg-prim ${colors.bg.primary};
+@define-color bg-sec ${colors.bg.secondary};
+@define-color bg-tert ${colors.bg.tertiary};
+'' + builtins.readFile ./waybar/style.css;
   };
 }

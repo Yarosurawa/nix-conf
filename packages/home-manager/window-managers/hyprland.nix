@@ -1,8 +1,20 @@
 {config, pkgs, ...}:
 
+let
+	colors = import ../../colors/main.nix;
+	wbar_toggle = pkgs.writeShellScriptBin "wbar_toggle" ''
+if pgrep waybar >/dev/null; then
+	pkill waybar
+else
+	${pkgs.waybar}/bin/waybar
+fi
+	'';
+in
 {
-	home.packages = with pkgs; [
-		hyprshot
+	home.packages = [
+		wbar_toggle
+		pkgs.hyprshot
+		pkgs.hyprpicker
 	];
 
 	wayland.windowManager.hyprland = {
@@ -21,7 +33,7 @@
 				"gaps_in" = "5";
 				"gaps_out" = "10";
 
-				"col.active_border" = "rgba(f12354ff) rgba(f1235433) 20deg";
+				"col.active_border" = "${colors.hypr_rgba colors.clr1.primary "ff"} ${colors.hypr_rgba colors.clr1.primary "44"} 20deg";
 			};
 
 			# Binds 
@@ -31,12 +43,17 @@
 				"$mod, RETURN, exec, $term"
 				"$mod, E, exec, $explorer"
 				"$mod, B, exec, vivaldi"
+				"$mod SHIFT, B, exec, wbar_toggle"
 				"SUPER SHIFT, code:201, exec, $term btop"
 				"$mod, menu, exec, discord"
+				"$mod, P, exec, hyprpicker -a"
 
 				", XF86Launch7, exec, hyprshot -m region --clipboard-only"
 				"SHIFT, XF86Launch7, exec, hyprshot -m window -m active --clipboard-only"
 				"CONTROL, XF86Launch7, exec, hyprshot -m output -m active --clipboard-only"
+				"ALT, XF86Launch7, exec, hyprshot -m region -o $HOME/Pictures/Screenshots"
+				"ALT SHIFT, XF86Launch7, exec, hyprshot -m window -m active -o $HOME/Pictures/Screenshots"
+				"ALT CONTROL, XF86Launch7, exec, hyprshot -m output -m active -o $HOME/Pictures/Screenshots"
 
 				# Window Operatin
 				"bind = $mod, left, movefocus, l"
@@ -53,7 +70,7 @@
 				"$mod, T, togglefloating,"
 				"$mod, F, fullscreen,"
 				"$mod SHIFT, RETURN, exec, $menu"
-				"$mod, P, pseudo,"
+				"$mod SHIFT, P, pseudo,"
 				"$mod, J, layoutmsg, togglesplit"
 
 				"$mod, S, togglespecialworkspace, magic"
@@ -76,7 +93,8 @@
 			];
 
 			bindl = [
-				",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+				",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""
+				",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send \"$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)\""
 				",XF86AudioPlay, exec, playerctl play-pause"
 				",XF86AudioPrev, exec, playerctl previous"
 				",XF86AudioNext, exec, playerctl next"
@@ -84,8 +102,6 @@
 
 
 			bindel = [
-				",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-				",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 				",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
 				",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
 				",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
@@ -94,11 +110,11 @@
 
 
 			decoration = {
-				rounding = "10";
-				inactive_opacity = "0.7";
+				rounding = "0";
+				inactive_opacity = "0.9";
 
 				blur = {
-					enabled = false;
+					enabled = true;
 				};
 			};
 

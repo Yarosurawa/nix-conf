@@ -13,7 +13,8 @@ in
 				general.framerate = 120;
 				smoothing.noise_reduction = 88;
 				color = {
-					foreground = "'${colors.clr1.primary}'";
+					background = "'${colors.bg.primary}'";
+					foreground = "'${colors.bg.primary}'";
 				};
 			};
 		};
@@ -126,21 +127,15 @@ in
 					source = "NixOs_old";
 					padding.right = 2;
 					color = {
-						"1" = colors.clr1.primary;
+						"1" = "#f41244";
 						"2" = "white";
-						"3" = colors.clr1.primary;
-						"4" = "white";
-						"5" = colors.clr1.primary;
-						"6" = "white";
-						"7" = colors.clr1.primary;
-						"8" = "white";
 					};
 				};
 				display =  {
 					separator =  ": ";
 					color =  {
-						keys =  colors.clr1.primary;
-						title = colors.clr1.primary;
+						keys =  "#f41244";
+						title =  "#f41244";
 					};
 					key =  {
 						width =  12;
@@ -163,11 +158,35 @@ in
 					};
 				};
 				modules = [
-					"title" "separator"
-					"bios" "wm" "Kernel" "separator"
-					"os" "packages" "bluetooth" "separator"
-					"battery" "CPUUsage" "board" "CPU" "GPU" "Memory" "Disk" "separator"
-					"font" "swap" "weather" "wifi" "Wallpaper" "uptime" "terminal" "shell" "processes" "Locale" "separator"
+					"title"
+					"separator"
+					"bios"
+					"wm"
+					"Kernel"
+					"separator"
+					"os"
+					"packages"
+					"bluetooth"
+					"separator"
+					"battery"
+					"CPUUsage"
+					"board"
+					"CPU"
+					"GPU"
+					"Memory"
+					"Disk"
+					"separator"
+					"font"
+					"swap"
+					"weather"
+					"wifi"
+					"Wallpaper"
+					"uptime"
+					"terminal"
+					"shell"
+					"processes"
+					"Locale"
+					"separator"
 					"media"
 				];
 			};
@@ -180,22 +199,11 @@ in
 
     zsh = {
       enable = true;
-			autocd = true;
-			autosuggestion.enable = true;
-			syntaxHighlighting= {
-				enable = true;
-				styles = {
-					command = "fg=${colors.clr1.primary},bold";
-					global-alias = "fg=${colors.clr1.primary},bold";
-				};
-			};
-			initContent = "fortune | cowsay -r";
       shellAliases = {
         nix_up = "sudo nixos-rebuild switch --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
         nix_test = "sudo nixos-rebuild test --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
 				ff = "fastfetch";
 				v = "nvim";
-				main_clr = "colo s ${colors.no_hash colors.clr1.primary}";
       };
       oh-my-zsh = {
         enable = true;
@@ -210,19 +218,7 @@ in
 			prefix = "C-a";
 			mouse = true;
 			shell = "${pkgs.zsh}/bin/zsh"; 
-			extraConfig = builtins.readFile ./tmux/tmux.conf
-			+ ''
-setw -g mode-style 'fg=${colors.bg.primary} bg=${colors.clr1.primary} bold'
-set -g pane-border-style 'fg=${colors.clr1.secondary}'
-set -g pane-active-border-style 'fg=${colors.clr1.primary}'
-set -g status-style 'fg=${colors.clr1.primary}'
-setw -g window-status-current-style 'fg=black bg=${colors.clr1.primary}'
-setw -g status-right-style 'fg=${colors.clr2.primary}'
-setw -g window-status-style 'bg=${colors.bg.primary} fg=${colors.clr1.primary}'
-setw -g window-status-format ' #I #[fg=${colors.fg.primary}]#W #[fg=${colors.clr2.primary}]#F '
-setw -g window-status-bell-style 'fg=${colors.clr2.primary} bg=${colors.clr1.primary} bold'
-set -g message-style 'fg=${colors.bg.primary} bg=${colors.clr1.primary} bold'
-			''; 
+			extraConfig = builtins.readFile ./tmux/tmux.conf; 
     };
 
     btop.enable = true;
