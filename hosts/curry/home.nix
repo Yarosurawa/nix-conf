@@ -5,6 +5,8 @@
     ../../packages/home-manager/terminal_stuff.nix
     ../../packages/home-manager/general.nix
     ../../packages/home-manager/window_managers.nix
+    ../../packages/home-manager/window-managers/hyprland.nix
+    ../../packages/home-manager/window-managers/niri/niri.nix
     ../../packages/home-manager/prog_langs.nix
     ../../packages/home-manager/txt.nix
   ];

@@ -15,6 +15,7 @@ in
 		wbar_toggle
 		pkgs.hyprshot
 		pkgs.hyprpicker
+		pkgs.woomer #zoom 
 	];
 
 	wayland.windowManager.hyprland = {
@@ -47,6 +48,7 @@ in
 				"SUPER SHIFT, code:201, exec, $term btop"
 				"$mod, menu, exec, discord"
 				"$mod, P, exec, hyprpicker -a"
+				"$mod, W, exec, woomer"
 
 				", XF86Launch7, exec, hyprshot -m region --clipboard-only"
 				"SHIFT, XF86Launch7, exec, hyprshot -m window -m active --clipboard-only"

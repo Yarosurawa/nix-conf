@@ -6,6 +6,10 @@ in
 {
   xdg.configFile."nvim".source = ./nvim;
 
+	home.packages = with pkgs; [
+		net-tools
+	];
+
   programs = {
     cava = {
 			enable = true;

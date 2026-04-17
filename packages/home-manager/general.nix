@@ -3,9 +3,10 @@
 {
   home.packages = with pkgs; [
     steam
-		wev
+		wev #input check
     spotify
-		spotify-player
+		spotify-player #terminal spotify (meh)
+		obsidian
     vivaldi
 		chromium
     discord
@@ -14,12 +15,14 @@
 		jetbrains.rider
 		protonvpn-gui
 		bitwarden-desktop
-		playerctl
+		playerctl #for controlling the media players 
 		libreoffice-qt-fresh
-		minefair
+		minefair #really wellmade minesweeper
 		unzip
-		qimgv
-		easyeffects
-		colo
+		qimgv #img viewer
+		easyeffects #voice mixer
+		colo # showing what a color looks like in term
+		cisco-packet-tracer_9
+		blueman bluez
   ];
 }

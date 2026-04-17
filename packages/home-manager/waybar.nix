@@ -15,7 +15,7 @@ in
 			layer = "top";
 			spacing = 5;
 
-			modules-left = [ "sway/workspaces" "sway/mode" "hyprland/workspaces"];
+			modules-left = [ "niri/workspaces" "sway/workspaces" "sway/mode" "hyprland/workspaces"];
 			modules-center = [ "clock" ];
 			modules-right = [ "battery" "pulseaudio" "network" ];
 
@@ -39,6 +39,29 @@ in
 					"8" = "八";
 					"9" = "九";
 					"10" = "十";
+				};
+			};
+
+			"niri/workspaces" = {
+				format = "{icon}";
+				current-only = true;
+				persistent-workspaces = {
+					"1" = [];
+					"2" = [];
+					"3" = [];
+					"notes" = [];
+					"oss" = [];
+				};
+				format-icons = {
+					"1" = "一";
+					"2" = "二";
+					"3" = "三";
+					"4" = "四";
+					"5" = "五";
+					"6" = "六";
+					"7" = "七";
+					"notes" = "八";
+					"oss" = "九";
 				};
 			};
 

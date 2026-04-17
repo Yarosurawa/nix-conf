@@ -2,8 +2,6 @@
 {
 	imports = [
 		./waybar.nix
-		./window-managers/sway.nix
-		./window-managers/hyprland.nix
 	];
 
   home.packages = with pkgs; [
