@@ -58,12 +58,18 @@
   services.xserver.desktopManager.xfce.enable = true;
 	hardware.graphics.enable32Bit = true;
 
+  # i3 Desktop Environment.
+  services.xserver.windowManager.i3.enable = true;
+
 	# Sway
   programs.sway.enable = true;
   programs.sway.wrapperFeatures.gtk = true;
 	
 	#Hyprland
 	programs.hyprland.enable = true;
+
+	#Niri
+	programs.niri.enable = true;
 
 	#touchpad
 	services.libinput = {
@@ -76,8 +82,8 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd start-hyprland";
+			default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri";
         user = "greeter";
       };
     };
@@ -120,7 +126,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ git wget tmux kitty keyd sway i3 home-manager vim neovim killall ];
+  environment.systemPackages = with pkgs; [ git wget tmux kitty keyd sway i3 home-manager vim neovim killall xwayland-satellite ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -19,7 +19,6 @@
 		fortune
 		fd
 		bc	
-		gdb
 		nasm
   ];
 }

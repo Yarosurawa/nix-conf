@@ -8,6 +8,7 @@
     ../../packages/home-manager/window-managers/hyprland.nix
     ../../packages/home-manager/window-managers/niri/niri.nix
     ../../packages/home-manager/prog_langs.nix
+    ../../packages/home-manager/heckerin.nix
     ../../packages/home-manager/txt.nix
   ];
   home.username = "yaro";

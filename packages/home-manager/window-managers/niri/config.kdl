@@ -2,7 +2,6 @@ input {
     keyboard {
         xkb {
             layout "us"
-            options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
         numlock
     }
@@ -31,7 +30,7 @@ input {
     trackpoint {
         // off
         // natural-scroll
-        // accel-speed 0.2
+        accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "on-button-down"
         // scroll-button 273
@@ -43,10 +42,10 @@ input {
     // focus-follows-mouse max-scroll-amount="0%"
 }
 output "eDP-1" {
-    mode "1920x1200@60"
+//     mode "1920x1200@60"
     scale 1
     transform "normal"
-    position x=0 y=0
+//     position x=0 y=0
 }
 
 overview {
@@ -211,10 +210,6 @@ window-rule {
     open-on-workspace "notes"
 }
 window-rule {
-    match app-id=r#"^discord$"#
-    open-on-workspace "oss"
-}
-window-rule {
     match app-id=r#"vivaldi"#
     open-maximized true
 }
@@ -239,10 +234,11 @@ window-rule {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "mako"
 spawn-at-startup "steam"
 spawn-at-startup "obsidian"
-spawn-at-startup "spotify"
-spawn-sh-at-startup "swayidle -w timeout 600 'swaylock -f' timeout 900 'niri msg output power off' resume 'niri msg output power on' before-sleep 'swaylock -f'"
+// spawn-sh-at-startup "swayidle -w timeout 600 'swaylock -f' timeout 900 'niri msg output power off' resume 'niri msg output power on' before-sleep 'swaylock -f'"
 
 binds {
     // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt

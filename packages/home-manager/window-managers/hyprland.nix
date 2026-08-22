@@ -85,7 +85,7 @@ in
 					"$mod, ${toString ws}, workspace, ${ if (ws == 0) then "10" else toString ws}"
 					"$mod SHIFT, ${toString ws}, movetoworkspace, ${ if (ws == 0) then "10" else toString ws}"
 				]
-			)9));
+			)10));
 
 			# Mouse movements
 			bindm = [

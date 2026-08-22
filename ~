@@ -1,226 +1,64 @@
-{ lib, config, osConfig, pkgs, ... }:
+{lib, config, pkgs, ...}:
 
 let
 	colors = import ../colors/main.nix;
 in
 {
-  xdg.configFile."nvim".source = ./nvim;
+	imports = [
+		./waybar.nix
+	];
 
-  programs = {
-    cava = {
-			enable = true;
-			settings = {
-				general.framerate = 120;
-				smoothing.noise_reduction = 88;
-				color = {
-					background = "'${colors.bg.primary}'";
-					foreground = "'${colors.bg.primary}'";
-				};
-			};
+  home.packages = with pkgs; [
+    slurp
+    wl-clipboard
+		waypaper
+		libnotify
+  ];
+
+	programs.mpvpaper.enable = true;
+	services.swww.enable = true;
+
+	qt = {
+		enable = true;
+		style.name = "adwaita-dark";
+	};
+
+	services.mako = {
+		enable = true;
+
+		settings = {
+			font = "JetBrainsMono Nerd Font 10";
+
+			background-color = colors.bg.primary;
+			text-color = colors.fg.primary;
+			border-color = colors.clr1.primary;
+
+			progress-color = colors.clr1.secondary;
+
+			border-radius = 5;
+			border-size = 1;
+
+			padding = "10,15";
+			margin = "10";
+
+			default-timeout = 3000;
+			ignore-timeout = false;
+
+			anchor = "top-right";
 		};
-    kitty = {
-      enable = true;
-      enableGitIntegration = true;
+	};
 
-      font = {
-        name = "Terminus (TTF)";
-        size = 14;
-      };
+	programs.rofi = {
+		enable = true;
+		location = "top-left";
+		terminal = "kitty";
+		theme = "dmenu";
+	};
 
-      settings = {
-        confirm_os_window_close = 0;
-        background_opacity = "0.7";
-        enable_audio_bell = false;
-				cursor_trail = 1;
-				cursor_trail_decay = "0.1 0.4";
-				open_url_with = "vivaldi";
-				show_hyperlink_targets = true;
-				strip_trailing_spaces = "always";
-				sync_to_monitor = false;
-				window_padding_width = 6;
-      };
-    };
-    vim = { enable = true; };
-    neovim = { 
-      enable = true;
-      defaultEditor = true;
+  home.file.".hm-graphical-session".text = pkgs.lib.concatStringsSep "\n" [
+    "export MOZ_ENABLE_WAYLAND=1"
+    "export NIXOS_OZONE_WL=1" # Electron
+  ];
 
-      waylandSupport = true;
-      withNodeJs = true;
-      withPython3 = true;
-
-      extraPackages = with pkgs; [
-        ripgrep fd
-
-        lua-language-server
-        nodePackages.typescript-language-server
-        nodePackages.typescript
-        nodePackages.vscode-langservers-extracted
-        nodePackages.eslint
-        nodePackages.prettier
-        vue-language-server 
-				vue
-				emmet-ls vtsls
-        clang-tools          
-				rust-analyzer
-				pyright
-				asm-lsp
-
-				rustfmt
-				black
-				isort
-
-        lldb
-        gdb
-      ];
-      plugins = with pkgs.vimPlugins; [
-				nvim-treesitter
-				nvim-treesitter.withAllGrammars
-				nerdcommenter
-
-				nvim-lspconfig
-				nvim-lsputils
-				nvim-vtsls
-				autoclose-nvim
-
-				alpha-nvim
-
-				bufferline-nvim
-
-				mini-icons
-				nvim-web-devicons
-				neo-tree-nvim
-
-				nvim-cmp
-				cmp-nvim-lsp
-				cmp-buffer
-				cmp-path
-				luasnip
-				cmp_luasnip
-
-				vim-vue-plugin
-				vim-vue
-
-				conform-nvim
-				nvim-lint
-				nvim-dap
-				nvim-notify
-				noice-nvim
-
-				lualine-nvim
-
-				telescope-nvim
-				plenary-nvim
-				gitsigns-nvim
-				which-key-nvim
-				indent-blankline-nvim
-
-				vim-moonfly-colors
-      ];
-    };
-
-    fastfetch = { 
-			enable = true;
-			settings = {
-				logo = {
-					type = "auto";
-					source = "NixOs_old";
-					padding.right = 2;
-					color = {
-						"1" = "#f41244";
-						"2" = "white";
-					};
-				};
-				display =  {
-					separator =  ": ";
-					color =  {
-						keys =  "#f41244";
-						title =  "#f41244";
-					};
-					key =  {
-						width =  12;
-						type =  "string";
-					};
-					bar =  {
-						width =  10;
-						char =  {
-								"elapsed" =  "■";
-								"total" =  "-";
-						};
-					};
-					percent =  {
-						type =  3;
-						color =  {
-								green =  "green";
-								yellow =  "light_yellow";
-								red =  "light_red";
-						};
-					};
-				};
-				modules = [
-					"title"
-					"separator"
-					"bios"
-					"wm"
-					"Kernel"
-					"separator"
-					"os"
-					"packages"
-					"bluetooth"
-					"separator"
-					"battery"
-					"CPUUsage"
-					"board"
-					"CPU"
-					"GPU"
-					"Memory"
-					"Disk"
-					"separator"
-					"font"
-					"swap"
-					"weather"
-					"wifi"
-					"Wallpaper"
-					"uptime"
-					"terminal"
-					"shell"
-					"processes"
-					"Locale"
-					"separator"
-					"media"
-				];
-			};
-		};
-    git = {
-      enable = true;
-      settings.user.name = "Yarosurawa";
-      settings.user.email = "yarosurawa@proton.me";
-    };
-
-    zsh = {
-      enable = true;
-      shellAliases = {
-        nix_up = "sudo nixos-rebuild switch --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
-        nix_test = "sudo nixos-rebuild test --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
-				ff = "fastfetch";
-				v = "nvim";
-      };
-      oh-my-zsh = {
-        enable = true;
-				plugins = [ "git" "vi-mode" ];
-				theme = "darkblood";
-			};
-    }; 
-
-    tmux = {
-			enable = true;
-			baseIndex = 1;
-			prefix = "C-a";
-			mouse = true;
-			shell = "${pkgs.zsh}/bin/zsh"; 
-			extraConfig = builtins.readFile ./tmux/tmux.conf; 
-    };
-
-    btop.enable = true;
-  }; 
+  services.cliphist.enable = true;
 }

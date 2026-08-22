@@ -7,9 +7,12 @@
     spotify
 		spotify-player #terminal spotify (meh)
 		obsidian
+		neomutt # email client
     vivaldi
 		chromium
+		lutris-free
     discord
+    discordo
 		telegram-desktop
 		whatsapp-electron
 		jetbrains.rider
@@ -24,5 +27,6 @@
 		colo # showing what a color looks like in term
 		cisco-packet-tracer_9
 		blueman bluez
+		zstd
   ];
 }
