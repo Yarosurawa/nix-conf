@@ -126,7 +126,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ git wget tmux kitty keyd sway i3 home-manager vim neovim killall xwayland-satellite ];
+  environment.systemPackages = with pkgs; [ 
+		inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+		git wget tmux kitty keyd sway i3 home-manager vim neovim killall xwayland-satellite 
+	];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

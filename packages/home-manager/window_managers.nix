@@ -16,7 +16,7 @@ in
   ];
 
 	programs.mpvpaper.enable = true;
-	services.swww.enable = true;
+	services.awww.enable = true;
 
 	qt = {
 		enable = true;

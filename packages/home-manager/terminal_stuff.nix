@@ -2,6 +2,17 @@
 
 let
 	colors = import ../colors/main.nix;
+  sunbather = pkgs.vimUtils.buildVimPlugin {
+    pname = "vim-sunbather";
+    version = "unstable";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "nikolvs";
+      repo = "vim-sunbather";
+      rev = "master";
+			hash = "sha256-d9ZkC0xw8mhOUHIXwBI5y2agO0C/oNcw9lst7H0rH08=";
+    };
+  };
 in
 {
   xdg.configFile."nvim".source = ./nvim;
@@ -51,16 +62,17 @@ in
       waylandSupport = true;
       withNodeJs = true;
       withPython3 = true;
+			withRuby = false;
 
       extraPackages = with pkgs; [
         ripgrep fd
 
         lua-language-server
-        nodePackages.typescript-language-server
-        nodePackages.typescript
-        nodePackages.vscode-langservers-extracted
-        nodePackages.eslint
-        nodePackages.prettier
+        typescript-language-server
+        typescript
+        vscode-langservers-extracted
+        eslint
+        prettier
         vue-language-server 
 				vue
 				emmet-ls vtsls
@@ -118,7 +130,7 @@ in
 				which-key-nvim
 				indent-blankline-nvim
 
-				vim-moonfly-colors
+				sunbather
       ];
     };
 

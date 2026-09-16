@@ -11,8 +11,6 @@
     pipx
 		gcc
     ripgrep
-		dotnet-sdk
-		dotnet-runtime
     typescript
 
 		cowsay

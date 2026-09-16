@@ -1,5 +1,5 @@
 
-vim.cmd.colorscheme("moonfly")
+vim.cmd.colorscheme("sunbather")
 
 require("home_screen")
 require("plugins")
