@@ -19,6 +19,16 @@
 		easyeffects #voice mixer
 		colo # showing what a color looks like in term
 		blueman bluez
+		kdePackages.dolphin
 		zstd
+		github-cli
+		rmpc # Music Player
+		xplr # File Explorer
+		mpd 
+	  exiftool
+		qbittorrent
+		mdfried #.md viewer
+		opentabletdriver # Tablet driver
+		osu-lazer-bin
   ];
 }

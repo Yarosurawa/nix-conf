@@ -11,6 +11,7 @@
       ../../packages/nixos/keyd.nix
       ../../packages/nixos/virtualbox.nix
       ../../packages/nixos/usb.nix
+			../../packages/scripts.nix
       inputs.home-manager.nixosModules.default
     ];
 

@@ -76,6 +76,8 @@
 		enable = true;
 		touchpad.tapping = true;
 	};
+	
+	hardware.opentabletdriver.enable = true; 
 
   security.polkit.enable = true;
 
@@ -83,7 +85,7 @@
     enable = true;
     settings = {
 			default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri --remember";
         user = "greeter";
       };
     };

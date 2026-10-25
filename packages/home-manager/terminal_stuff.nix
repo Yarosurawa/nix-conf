@@ -19,6 +19,7 @@ in
 
 	home.packages = with pkgs; [
 		net-tools
+		tree
 	];
 
   programs = {
@@ -212,6 +213,8 @@ in
 				ff = "fastfetch";
 				v = "nvim";
 				main_clr = "colo s ${colors.no_hash colors.clr1.primary}";
+				mytemp = "mkdir -p /tmp/mytemp && cd /tmp/mytemp";
+				newtemp = "mkdir -p /tmp/mytemp && cd /tmp/mytemp && rm -rf /tmp/mytemp/*";
       };
       oh-my-zsh = {
         enable = true;
