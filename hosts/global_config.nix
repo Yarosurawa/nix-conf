@@ -21,8 +21,29 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+
+
   # Enable networking
   networking.networkmanager.enable = true;
+
+  networking.hosts = {
+		"::1" = [ "v.dev" "n.dev" ];
+		"127.0.0.1" = [ "v.dev" "n.dev" ];
+	};
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."v.dev".extraConfig = ''
+			tls ${../certs/dev.pem} ${../certs/dev-key.pem}
+      reverse_proxy [::1]:5173
+    '';
+    virtualHosts."n.dev".extraConfig = ''
+			tls ${../certs/dev.pem} ${../certs/dev-key.pem}
+      reverse_proxy [::1]:3000
+    '';
+  };
+	
+	security.pki.certificateFiles = [ ../certs/rootCA.pem ];
 
   # Set your time zone.
   time.timeZone = "Europe/Dublin";

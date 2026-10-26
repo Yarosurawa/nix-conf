@@ -210,6 +210,7 @@ in
       shellAliases = {
         nix_up = "sudo nixos-rebuild switch --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
         nix_test = "sudo nixos-rebuild test --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
+        nix_clean = "sudo nix-collect-garbage -d && nix_up";
 				ff = "fastfetch";
 				v = "nvim";
 				main_clr = "colo s ${colors.no_hash colors.clr1.primary}";

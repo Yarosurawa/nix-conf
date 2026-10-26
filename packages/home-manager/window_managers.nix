@@ -11,6 +11,7 @@ in
   home.packages = with pkgs; [
     slurp
     wl-clipboard
+		hyprpicker 
 		waypaper
 		libnotify
   ];
