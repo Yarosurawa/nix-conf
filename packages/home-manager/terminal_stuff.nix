@@ -131,6 +131,7 @@ in
 				which-key-nvim
 				indent-blankline-nvim
 
+				vim-glsl
 				sunbather
       ];
     };

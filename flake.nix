@@ -15,6 +15,10 @@
     };
   };
 
+	environment.systemPackages = [
+    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default # default, beta, twilight, or twilight-official
+  ];
+
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations.chopsticks = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";

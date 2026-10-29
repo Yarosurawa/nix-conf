@@ -10,6 +10,7 @@
     ../../packages/home-manager/prog_langs.nix
     ../../packages/home-manager/heckerin.nix
     ../../packages/home-manager/txt.nix
+		../../packages/home-manager/mpd.nix
   ];
   home.username = "yaro";
   home.homeDirectory = "/home/yaro";
