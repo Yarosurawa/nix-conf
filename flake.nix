@@ -10,14 +10,11 @@
     };
 
 		zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
   };
-
-	environment.systemPackages = [
-    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default # default, beta, twilight, or twilight-official
-  ];
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations.chopsticks = nixpkgs.lib.nixosSystem {

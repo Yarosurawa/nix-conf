@@ -1,6 +1,15 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
+	imports = [
+		inputs.zen-browser.homeModules.beta # beta, twilight, or twilight-official
+	];
+
+	programs.zen-browser = {
+		enable = true;
+		setAsDefaultBrowser = true;
+	};
+
   home.packages = with pkgs; [
     steam
 		prismlauncher
@@ -30,5 +39,6 @@
 		mdfried #.md viewer
 		opentabletdriver # Tablet driver
 		osu-lazer-bin
+		cisco-packet-tracer_9
   ];
 }

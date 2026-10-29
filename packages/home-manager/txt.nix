@@ -17,6 +17,7 @@
 		terminus_font_ttf
 		nerd-fonts.iosevka-term
 		zpix-pixel-font
+		corefonts
 	];
 
   home.sessionVariables = {
