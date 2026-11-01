@@ -11,7 +11,7 @@
 		nerd-fonts.arimo
     kochi-substitute
     source-code-pro
-    ttf_bitstream_vera
+    ttf-bitstream-vera
     iosevka
 		terminus_font
 		terminus_font_ttf

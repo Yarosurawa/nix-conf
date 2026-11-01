@@ -20,6 +20,9 @@ in
 	home.packages = with pkgs; [
 		net-tools
 		tree
+		ghgrab
+		lazyrsync
+		tldr
 	];
 
   programs = {

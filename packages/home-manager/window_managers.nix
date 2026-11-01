@@ -102,9 +102,11 @@ in
 
 	programs.rofi = {
 		enable = true;
-		location = "top-left";
-		terminal = "kitty";
 		theme = "dmenu";
+		settings = {
+			location = "top-left";
+			terminal = "kitty";
+		};
 	};
 
   home.file.".hm-graphical-session".text = pkgs.lib.concatStringsSep "\n" [

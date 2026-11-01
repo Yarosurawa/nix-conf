@@ -32,13 +32,15 @@
 		zstd
 		github-cli
 		rmpc # Music Player
+		kew # Another Music Player
 		xplr # File Explorer
 		mpd 
 	  exiftool
 		qbittorrent
-		mdfried #.md viewer
+		leaf-markdown-viewer
 		opentabletdriver # Tablet driver
 		osu-lazer-bin
 		cisco-packet-tracer_9
+		tuxedo #to-do thingy 
   ];
 }
