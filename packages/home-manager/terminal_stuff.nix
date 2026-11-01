@@ -211,6 +211,7 @@ in
 				};
 			};
 			initContent = "fortune | cowsay -r";
+
       shellAliases = {
         nix_up = "sudo nixos-rebuild switch --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
         nix_test = "sudo nixos-rebuild test --flake ~/.config/nix-conf/#${osConfig.networking.hostName}";
@@ -218,6 +219,7 @@ in
 				ff = "fastfetch";
 				v = "nvim";
 				main_clr = "colo s ${colors.no_hash colors.clr1.primary}";
+				cock = "clock-rs -c #ef1068";
 				mytemp = "mkdir -p /tmp/mytemp && cd /tmp/mytemp";
 				newtemp = "mkdir -p /tmp/mytemp && cd /tmp/mytemp && rm -rf /tmp/mytemp/*";
       };
