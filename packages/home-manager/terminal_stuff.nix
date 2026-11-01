@@ -22,6 +22,7 @@ in
 		tree
 		ghgrab
 		lazyrsync
+		clock-rs
 		tldr
 	];
 
@@ -219,7 +220,7 @@ in
 				ff = "fastfetch";
 				v = "nvim";
 				main_clr = "colo s ${colors.no_hash colors.clr1.primary}";
-				cock = "clock-rs -c #ef1068";
+				cock = "clock-rs -c=${colors.clr1.primary}"; #funny
 				mytemp = "mkdir -p /tmp/mytemp && cd /tmp/mytemp";
 				newtemp = "mkdir -p /tmp/mytemp && cd /tmp/mytemp && rm -rf /tmp/mytemp/*";
       };
